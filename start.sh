@@ -9,29 +9,22 @@ until php -r "new PDO('mysql:host=db;dbname=laravel_ecommerce', 'laravel', 'pass
     sleep 2
 done
 
-# Run migrations if needed
-if ! php -r "\$pdo = new PDO('mysql:host=db;dbname=laravel_ecommerce', 'laravel', 'password'); \$stmt = \$pdo->query('SHOW TABLES LIKE \"users\"'); exit(\$stmt->rowCount() > 0 ? 0 : 1);" 2>/dev/null; then
-    echo "Running migrations..."
-    php artisan migrate --force
-fi
+# Run migrations
+echo "Running migrations..."
+php artisan migrate:fresh --force
+echo "Migrations completed!"
 
-# Create admin user if not exists
-if ! php -r "\$pdo = new PDO('mysql:host=db;dbname=laravel_ecommerce', 'laravel', 'password'); \$stmt = \$pdo->prepare('SELECT COUNT(*) FROM users WHERE role = 2'); \$stmt->execute(); exit(\$stmt->fetchColumn() > 0 ? 0 : 1);" 2>/dev/null; then
-    echo "Creating admin user..."
-    php artisan admin:create "Admin User" "admin@example.com" "admin123"
-fi
+# Create admin user
+echo "Creating admin user..."
+php artisan admin:create "Admin User" "admin@example.com" "admin123" || true
 
-# Add countries if not exists
-if ! php -r "\$pdo = new PDO('mysql:host=db;dbname=laravel_ecommerce', 'laravel', 'password'); \$stmt = \$pdo->query('SELECT COUNT(*) FROM countries'); exit(\$stmt->fetchColumn() > 0 ? 0 : 1);" 2>/dev/null; then
-    echo "Adding countries..."
-    php artisan tinker --execute="App\Models\Country::create(['name' => 'India', 'code' => 'IN']);"
-fi
+# Add countries
+echo "Adding countries..."
+php artisan tinker --execute="App\Models\Country::firstOrCreate(['code' => 'IN'], ['name' => 'India']);" || true
 
-# Add shipping charges if not exists
-if ! php -r "\$pdo = new PDO('mysql:host=db;dbname=laravel_ecommerce', 'laravel', 'password'); \$stmt = \$pdo->query('SELECT COUNT(*) FROM shipping_charges'); exit(\$stmt->fetchColumn() > 0 ? 0 : 1);" 2>/dev/null; then
-    echo "Adding shipping charges..."
-    php artisan tinker --execute="App\Models\ShippingCharge::create(['country_id' => 1, 'amount' => 50]); App\Models\ShippingCharge::create(['country_id' => 'rest_of_world', 'amount' => 100]);"
-fi
+# Add shipping charges
+echo "Adding shipping charges..."
+php artisan tinker --execute="App\Models\ShippingCharge::firstOrCreate(['country_id' => 1], ['amount' => 50]); App\Models\ShippingCharge::firstOrCreate(['country_id' => 'rest_of_world'], ['amount' => 100]);" || true
 
 # Set permissions
 chown -R www-data:www-data /var/www/public/uploads
