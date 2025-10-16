@@ -11,7 +11,7 @@ services:
       - .:/var/www
     networks:
       - laravel
-    command: sh -c "php-fpm & php artisan serve --host=0.0.0.0 --port=8000"
+    command: sh -c "composer install && php-fpm & php artisan serve --host=0.0.0.0 --port=8000"
 
   db:
     image: mysql:8.0
