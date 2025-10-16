@@ -2,7 +2,7 @@
 <html class="no-js" lang="en_AU" />
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Laravel EasyBazaar</title>
+	<title>Laravel VKart</title>
 	<meta name="description" content="" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no" />
     {{-- Csrf Token --}}
@@ -53,8 +53,8 @@
 		<div class="row align-items-center py-3 d-none d-lg-flex justify-content-between">
 			<div class="col-lg-4 logo">
 				<a href="{{ route('front.home') }}" class="text-decoration-none">
-					<span class="h1 text-uppercase text-primary bg-dark px-2">Online</span>
-					<span class="h3 text-uppercase text-dark bg-primary px-2 ml-n1">EasyBazaar</span>
+					<span class="h1 text-uppercase text-primary bg-dark px-2">V</span>
+					<span class="h3 text-uppercase text-dark bg-primary px-2 ml-n1">Kart</span>
 				</a>
 			</div>
 			<div class="col-lg-6 col-6 text-left  d-flex justify-content-end align-items-center">
@@ -82,8 +82,8 @@
 	<div class="container">
 		<nav class="navbar navbar-expand-xl" id="navbar">
 			<a href="{{ route('front.home') }}" class="text-decoration-none mobile-logo">
-				<span class="h2 text-uppercase text-primary bg-dark">Online</span>
-				<span class="h2 text-uppercase text-white px-2">EasyBazaar</span>
+				<span class="h2 text-uppercase text-primary bg-dark">V</span>
+				<span class="h2 text-uppercase text-white px-2">Kart</span>
 			</a>
 			<button class="navbar-toggler menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       			<!-- <span class="navbar-toggler-icon icon-menu"></span> -->
@@ -143,10 +143,9 @@
 			<div class="col-md-4">
 				<div class="footer-card">
 					<h3>Get In Touch</h3>
-					<p>Thank you for visiting our Online EasyBazaar! We specialize in delivering high-quality results tailored to your unique requirements. <br>
-					123 Street, karachi, Pakistan <br>
-					majid@gmail.com <br>
-					0322 268 2821</p>
+					<p>Thank you for visiting our VKart!<br>
+					prathamkamthan1306@gmail.com<br>
+					8076190152</p>
 				</div>
 			</div>
 
@@ -185,7 +184,7 @@
 			<div class="row">
 				<div class="col-12 mt-3">
 					<div class="copy-right text-center">
-						<p>© Copyright 2023 Online EasyBazaar. All Rights Reserved</p>
+						<p>© Copyright 2023 Online VKart. All Rights Reserved</p>
 					</div>
 				</div>
 			</div>

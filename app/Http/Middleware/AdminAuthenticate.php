@@ -20,10 +20,10 @@ class AdminAuthenticate extends Middleware
     }
     protected function authenticate($request, array $guards)
     {
-        if ($this->auth->guard('admin')->check()) {
-            return $this->auth->shouldUse('admin');
+        if ($this->auth->check() && $this->auth->user()->role == 2) {
+            return;
         }
 
-        $this->unauthenticated($request, ['admin']);
+        $this->unauthenticated($request, $guards);
     }
 }

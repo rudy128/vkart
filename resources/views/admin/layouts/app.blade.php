@@ -54,8 +54,8 @@
 							<img src="{{ asset('admin-assets/img/avatar5.png') }} " class='img-circle elevation-2' width="40" height="40" alt="">
 						</a>
 						<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-3">
-							<h4 class="h4 mb-0"><strong>{{ Auth::guard('admin')->user()->name }}</strong></h4>
-							<div class="mb-3">{{ Auth::guard('admin')->user()->email }}</div>
+							<h4 class="h4 mb-0"><strong>{{ Auth::user()->name }}</strong></h4>
+							<div class="mb-3">{{ Auth::user()->email }}</div>
 							<div class="dropdown-divider"></div>
 							<a href="#" class="dropdown-item">
 								<i class="fas fa-user-cog mr-2"></i> Settings
@@ -110,7 +110,9 @@
 
         <!-- Dropzone js file -->
         <script src="{{ asset('admin-assets/plugins/dropzone/min/dropzone.min.js')}}"></script>
-        <script src="{{ asset('admin-assets/plugins/dropzone/dropzone.js')}}"></script>
+        <script>
+            Dropzone.autoDiscover = false;
+        </script>
 
 		<!-- Bootstrap 4 -->
 		<script src="{{ asset('admin-assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }} "></script>

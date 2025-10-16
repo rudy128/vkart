@@ -49,7 +49,7 @@
                                         {{-- <b>Invoice #007612</b><br> --}}
                                         {{-- <br> --}}
                                         <b>Order ID:</b> {{ $order->id }}<br>
-                                        <b>Total:</b>PKR: {{ number_format($order->grand_total,2) }}<br>
+                                        <b>Total:</b>INR: {{ number_format($order->grand_total,2) }}<br>
                                         <b>Status:</b>
                                         @if($order->status == 'pending')
                                             <span class="text-danger">Panding</span>
@@ -78,29 +78,29 @@
                                         @foreach ($orderItems as $item)
                                             <tr>
                                                 <td>{{$item->name}}</td>
-                                                <td>PKR: {{ number_format($item->price,2)}}</td>
+                                                <td>INR: {{ number_format($item->price,2)}}</td>
                                                 <td>{{$item->qty}}</td>
-                                                <td>PKR: {{ number_format($item->total,2) }}</td>
+                                                <td>INR: {{ number_format($item->total,2) }}</td>
                                             </tr>
                                         @endforeach
 
                                         <tr>
                                             <th colspan="3" class="text-right">Subtotal:</th>
-                                            <td>PKR: {{ number_format($order->subtotal,2) }}</td>
+                                            <td>INR: {{ number_format($order->subtotal,2) }}</td>
                                         </tr>
 
                                         <tr>
                                             <th colspan="3" class="text-right">Discount:{{ (!empty($order->coupon_code)) ? '('.$order->coupon_code.')' : '' }}</th>
-                                            <td>PKR: {{ number_format($order->discount,2) }}</td>
+                                            <td>INR: {{ number_format($order->discount,2) }}</td>
                                         </tr>
 
                                         <tr>
                                             <th colspan="3" class="text-right">Shipping:</th>
-                                            <td>PKR: {{ number_format($order->shipping,2) }}</td>
+                                            <td>INR: {{ number_format($order->shipping,2) }}</td>
                                         </tr>
                                         <tr>
                                             <th colspan="3" class="text-right">Grand Total:</th>
-                                            <td>PKR: {{ number_format($order->grand_total,2) }}</td>
+                                            <td>INR: {{ number_format($order->grand_total,2) }}</td>
                                         </tr>
                                     </tbody>
                                 </table>

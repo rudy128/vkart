@@ -53,9 +53,9 @@
                                 <div class="pt-2">
                                     <h3 class="product-title fs-base mb-2"><a href="{{ route('front.product',$wishlist->product->slug) }}">{{ $wishlist->product->title }}</a></h3>
                                     <div class="fs-lg text-accent pt-2">
-                                        <span class="h5"><strong>PKR: {{ $wishlist->product->price }}</strong></span>
+                                        <span class="h5"><strong>INR: {{ $wishlist->product->price }}</strong></span>
                                         @if($wishlist->product->compare_price > 0)
-                                        <span class="h6 text-underline"><del>PKR: {{$wishlist->product->compare_price }}</del></span>
+                                        <span class="h6 text-underline"><del>INR: {{$wishlist->product->compare_price }}</del></span>
                                         @endif
                                     </div>
                                 </div>

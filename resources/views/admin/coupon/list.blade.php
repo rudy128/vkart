@@ -77,7 +77,7 @@
                                             @if($discountCoupon->type == 'percent')
                                                 {{ $discountCoupon->discount_amount }}%
                                             @else
-                                                PKR: {{ $discountCoupon->discount_amount }}
+                                                INR: {{ $discountCoupon->discount_amount }}
                                             @endif
                                         </td>
 

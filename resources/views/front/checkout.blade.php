@@ -124,28 +124,28 @@
 
                             <div class="d-flex justify-content-between pb-2">
                                 <div class="h6">{{ $item->name }} X {{ $item->qty }}</div>
-                                <div class="h6">Pkr:{{ $item->price * $item->qty }} </div>
+                                <div class="h6">INR:{{ $item->price * $item->qty }} </div>
                             </div>
 
                             @endforeach
 
                             <div class="d-flex justify-content-between summery-end">
                                 <div class="h6"><strong>Subtotal</strong></div>
-                                <div class="h6"><strong>PKR: {{ Cart::subtotal() }}</strong></div>
+                                <div class="h6"><strong>INR: {{ Cart::subtotal() }}</strong></div>
                             </div>
 
                             <div class="d-flex justify-content-between summery-end">
                                 <div class="h6"><strong>Discount</strong></div>
-                                <div class="h6"><strong id="discount_value">PKR: {{ $discount }}</strong></div>
+                                <div class="h6"><strong id="discount_value">INR: {{ $discount }}</strong></div>
                             </div>
 
                             <div class="d-flex justify-content-between mt-2">
                                 <div class="h6"><strong>Shipping</strong></div>
-                                <div class="h6"><strong id="shippingAmount">PKR: {{ number_format($totalShippingCharge,2)}}</strong></div>
+                                <div class="h6"><strong id="shippingAmount">INR: {{ number_format($totalShippingCharge,2)}}</strong></div>
                             </div>
                             <div class="d-flex justify-content-between mt-2 summery-end">
                                 <div class="h5"><strong>Total</strong></div>
-                                <div class="h5"><strong id="grandTotal">PKR: {{ number_format($grandTotal,2) }}</strong></div>
+                                <div class="h5"><strong id="grandTotal">INR: {{ number_format($grandTotal,2) }}</strong></div>
                             </div>
                         </div>
                     </div>
@@ -404,8 +404,8 @@
             success: function (response) {
                 // Handle the success response here
             if(response.status == true){
-                $("#shippingAmount").html('PKR: '+response.shippingCharge);
-                $("#grandTotal").html('PKR: '+response.grandTotal);
+                $("#shippingAmount").html('INR: '+response.shippingCharge);
+                $("#grandTotal").html('INR: '+response.grandTotal);
             }
 
         }
@@ -423,9 +423,9 @@
             success: function (response) {
                 if(response.status == true)
                 {
-                    $("#shippingAmount").html('PKR: '+response.shippingCharge);
-                    $("#grandTotal").html('PKR: '+response.grandTotal);
-                    $("#discount_value").html('PKR: '+response.discount);
+                    $("#shippingAmount").html('INR: '+response.shippingCharge);
+                    $("#grandTotal").html('INR: '+response.grandTotal);
+                    $("#discount_value").html('INR: '+response.discount);
                     $("#discount-response-wrapper").html(response.discontString);
                 }
                 else{
@@ -444,9 +444,9 @@
             success: function (response) {
                 if(response.status == true)
                 {
-                    $("#shippingAmount").html('PKR: '+response.shippingCharge);
-                    $("#grandTotal").html('PKR: '+response.grandTotal);
-                    $("#discount_value").html('PKR: '+response.discount);
+                    $("#shippingAmount").html('INR: '+response.shippingCharge);
+                    $("#grandTotal").html('INR: '+response.grandTotal);
+                    $("#discount_value").html('INR: '+response.discount);
                     $("#discount-response").html('');
                     $("#discount_code").val('');
                 }

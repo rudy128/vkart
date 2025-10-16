@@ -158,9 +158,9 @@
                                     <div class="card-body text-center mt-3">
                                         <a class="h6 link" href="product.php">{{ $product->title }}</a>
                                         <div class="price mt-2">
-                                            <span class="h5"><strong>PKR{{ $product->price }}</strong></span>
+                                            <span class="h5"><strong>INR{{ $product->price }}</strong></span>
                                             @if($product->compare_price > 0)
-                                                <span class="h6 text-underline"><del>PKR{{ $product->compare_price }}</del></span>
+                                                <span class="h6 text-underline"><del>INR{{ $product->compare_price }}</del></span>
                                             @endif
 
                                         </div>

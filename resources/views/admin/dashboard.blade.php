@@ -64,7 +64,7 @@
                         <div class="col-lg-4 col-6">
                             <div class="small-box card">
                                 <div class="inner">
-                                    <h3>PKR: {{ number_format($totalRevenue,2) }}</h3>
+                                    <h3>INR: {{ number_format($totalRevenue,2) }}</h3>
                                     <p>Total Sale</p>
                                 </div>
                                 <div class="icon">
@@ -77,7 +77,7 @@
                         <div class="col-lg-4 col-6">
                             <div class="small-box card">
                                 <div class="inner">
-                                    <h3>PKR: {{ number_format($revenueThisMonth,2) }}</h3>
+                                    <h3>INR: {{ number_format($revenueThisMonth,2) }}</h3>
                                     <p>Current Month Revenue</p>
                                 </div>
                                 <div class="icon">
@@ -90,7 +90,7 @@
                         <div class="col-lg-4 col-6">
                             <div class="small-box card">
                                 <div class="inner">
-                                    <h3>PKR: {{ number_format($revenueLastMonth,2) }}</h3>
+                                    <h3>INR: {{ number_format($revenueLastMonth,2) }}</h3>
                                     <p>Last Month Revenue ({{ $lastMonthName }})</p>
                                 </div>
                                 <div class="icon">
@@ -103,7 +103,7 @@
                            <div class="col-lg-4 col-6">
                             <div class="small-box card">
                                 <div class="inner">
-                                    <h3>PKR: {{ number_format($revenueLastThirtyDays,2) }}</h3>
+                                    <h3>INR: {{ number_format($revenueLastThirtyDays,2) }}</h3>
                                     <p>Last 30 Days Revenue</p>
                                 </div>
                                 <div class="icon">

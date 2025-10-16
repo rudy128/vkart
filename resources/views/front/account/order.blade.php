@@ -56,7 +56,7 @@
                                             <span class="badge bg-danger">Cancelled</span>
                                             @endif
                                         </td>
-                                        <td>PKR: {{ number_format($order->grand_total,2) }}</td>
+                                        <td>INR: {{ number_format($order->grand_total,2) }}</td>
                                     </tr>
                                     @endforeach
                                     @else

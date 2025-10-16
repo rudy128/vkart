@@ -93,8 +93,7 @@ class HomeController extends Controller
 
     public function logout()
     {
-        Auth::guard('admin')->logout();
+        Auth::logout();
         return redirect()->route('admin.login');
-
     }
 }

@@ -12,31 +12,50 @@ class TempImagesController extends Controller
 
         public function create(Request $request)
         {
-            $image = $request->image;
+            try {
+                if (!$request->hasFile('image')) {
+                    return response()->json([
+                        'status' => false,
+                        'message' => 'No image file uploaded',
+                    ]);
+                }
 
-            if(!empty($image))
-            {
+                $image = $request->file('image');
                 $ext = $image->getClientOriginalExtension();
                 $newName = time().'.'.$ext;
+
+                // Ensure temp directories exist
+                $tempPath = public_path('temp');
+                $thumbPath = public_path('temp/thumb');
+                
+                if (!file_exists($tempPath)) {
+                    mkdir($tempPath, 0755, true);
+                }
+                if (!file_exists($thumbPath)) {
+                    mkdir($thumbPath, 0755, true);
+                }
 
                 $tempImage = new tempImage();
                 $tempImage->name = $newName;
                 $tempImage->save();
 
-                $image->move(public_path().'/temp',$newName);
+                // Move uploaded file
+                $image->move($tempPath, $newName);
 
-                // Generate Thumbnail
-                $sourcePath = public_path().'/temp/'.$newName;
-                $destPath = public_path().'/temp/thumb/'.$newName;
-                $image = Image::make($sourcePath);
-                $image->fit(300,275);
-                $image->save($destPath);
+                // Copy to thumb folder (without resizing for now)
+                copy($tempPath.'/'.$newName, $thumbPath.'/'.$newName);
 
                 return response()->json([
-                    'status'=> true,
+                    'status' => true,
                     'image_id' => $tempImage->id,
-                    'imagePath' => asset('/temp/thumb/'.$newName),
-                    'image' => 'Image upload successfully',
+                    'imagePath' => asset('temp/thumb/'.$newName),
+                    'message' => 'Image uploaded successfully',
+                ]);
+                
+            } catch (\Exception $e) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Upload failed: ' . $e->getMessage(),
                 ]);
             }
         }

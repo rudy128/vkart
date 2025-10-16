@@ -324,7 +324,11 @@ class CartController extends Controller
                 }
                 else{
                     $shippingInfo = ShippingCharge::where('country_id','rest_of_world')->first();
-                    $shipping = $totalQty * $shippingInfo->amount;
+                    if($shippingInfo != null) {
+                        $shipping = $totalQty * $shippingInfo->amount;
+                    } else {
+                        $shipping = 0;
+                    }
                     $grandTotal = ($subTotal-$discount) + $shipping;
                 }
 
@@ -556,7 +560,7 @@ class CartController extends Controller
             {
                 return response()->json([
                     'status' => false,
-                    'message' => 'Your min amount must be PKR: '.$code->min_amount.'.',
+                    'message' => 'Your min amount must be INR: '.$code->min_amount.'.',
                 ]);
             }
         }

@@ -21,7 +21,7 @@ class AdminRedirectIfAuthenticated
     {
         $guards = empty($guards) ? [null] : $guards;
 
-        if (Auth::guard('admin')->check()) {
+        if (Auth::check() && Auth::user()->role == 2) {
            return redirect()->route('admin.dashboard');
         }
 
