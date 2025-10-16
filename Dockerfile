@@ -16,7 +16,7 @@ COPY --from=composer:2.5.8 /usr/bin/composer /usr/bin/composer
 
 COPY . .
 
-RUN composer install --no-dev --optimize-autoloader
+# Dependencies will be installed at runtime
 
 RUN chown -R www-data:www-data /var/www \
     && chmod -R 755 /var/www/storage \
@@ -24,4 +24,4 @@ RUN chown -R www-data:www-data /var/www \
 
 EXPOSE 9000
 
-CMD ["php-fpm"]
+CMD ["sh", "-c", "composer install && php-fpm & php artisan serve --host=0.0.0.0 --port=8000 && wait"]
